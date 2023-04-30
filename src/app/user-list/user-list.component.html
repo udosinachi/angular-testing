@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-header">
+    {{ pageTitle }}
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table" *ngIf="users.length">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name (Username)</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Website</th>
+            <th>Company</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users" class="tr">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }} ({{ user.username }})</td>
+            <td>{{ user.email }}</td>
+            <td>
+              {{ user.address.suite }} {{ user.address.street }}
+              {{ user.address.city }}
+            </td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.website }}</td>
+            <td>{{ user.company.name }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div *ngIf="errorMessage" class="alert alert-danger">
+  Error: {{ errorMessage }}
+</div>
